@@ -3,6 +3,7 @@ import {
     View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, FlatList
 } from 'react-native';
 import SearchView from '../fragments/SearchView';
+import ListItem from '../fragments/ListItem';
 import imgThu from '../../images/thu.jpg';
 import icAddImages from '../../icons/ic_add_image.png';
 
@@ -18,16 +19,6 @@ export default class ListComponents extends Component {
         };
     }
 
-    renderItem(item) {
-        const { imgProfile, itemContainer, itemName } = styles;
-        return (
-            <TouchableOpacity style={itemContainer}>
-                <Image source={imgThu} style={imgProfile} />
-                <Text style={itemName}>{item.name}</Text>
-            </TouchableOpacity>
-        );
-    }
-
     render() {
         const { container, content, profile, imgProfile, profileNameContainer, profileImgAdd } = styles;
         return (
@@ -35,7 +26,7 @@ export default class ListComponents extends Component {
                 <SearchView />
                 <View style={content}>
                     <TouchableOpacity style={profile}>
-                        <View style={{flexDirection: 'row'}}>
+                        <View style={{ flexDirection: 'row' }}>
                             <Image style={imgProfile} source={imgThu} />
                             <View style={profileNameContainer}>
                                 <Text style={{ fontWeight: 'bold' }}>Hoang Khoa</Text>
@@ -51,7 +42,7 @@ export default class ListComponents extends Component {
                             style={{ backgroundColor: 'white' }}
                             data={this.state.mang}
                             keyExtractor={item => item.id}
-                            renderItem={({ item }) => this.renderItem(item)}
+                            renderItem={({ item }) => <ListItem item={item} />}
                         />
                     </View>
                 </View>
@@ -77,11 +68,6 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         alignItems: 'center'
     },
-    imgProfile: {
-        width: 40,
-        height: 40,
-        borderRadius: 20
-    },
     profileNameContainer: {
         paddingHorizontal: 16
     },
@@ -90,15 +76,9 @@ const styles = StyleSheet.create({
         height: 25,
         padding: 8
     },
-    itemContainer: {
-        flexDirection: 'row',
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-        borderBottomWidth: 1,
-        borderColor: '#ececec',
-        alignItems: 'center'
+    imgProfile: {
+        width: 40,
+        height: 40,
+        borderRadius: 20
     },
-    itemName: {
-        paddingHorizontal: 16
-    }
 })
