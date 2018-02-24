@@ -4,9 +4,10 @@ import Register from './components/screens/Register';
 import SignIn from './components/screens/SignIn';
 import ListComponents from './components/screens/ListComponents';
 import ListMessage from './components/screens/ListMessage';
+import ListContact from './components/screens/ListContact';
 
 export default class App extends Component {
   render() {
-    return <ListMessage />;
+    return <ListContact />;
   }
 }

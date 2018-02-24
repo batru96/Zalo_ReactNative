@@ -11,7 +11,7 @@ export default class SignIn extends Component {
         this.state = {
             username: '',
             password: ''
-        }
+        };
     }
     render() {
         const { username, password } = this.state;
@@ -40,7 +40,7 @@ export default class SignIn extends Component {
                         <Text style={nextBtnText}>LOGIN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={{color: '#3975e8'}}>Recover password</Text>
+                        <Text style={{ color: '#3975e8' }}s>Recover password</Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import RightSide from './SearchView/RightSide';
 import icSearch from '../../icons/ic_search.png';
 
@@ -8,8 +8,9 @@ export default class SearchView extends Component {
         super(props);
         this.state = {
             searchValue: ''
-        }
+        };
     }
+
     render() {
         const { container, button, input } = styles;
         return (
@@ -27,7 +28,7 @@ export default class SearchView extends Component {
                 />
                 <RightSide />
             </View>
-        )
+        );
     }
 }
 
@@ -54,4 +55,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlignVertical: 'center'
     }
-})
+});

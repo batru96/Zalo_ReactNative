@@ -13,8 +13,8 @@ class ListMessage extends Component {
                 { id: '3', name: 'Media Box', message: 'Dung co tin no' },
                 { id: '4', name: 'Media Box', message: 'Dung co tin no' },
                 { id: '5', name: 'Media Box', message: 'Dung co tin no' },
-            ]
-        }
+            ],
+        };
     }
 
     renderItem(item) {
@@ -34,25 +34,30 @@ class ListMessage extends Component {
     }
 
     render() {
-        const { container } = styles;
+        const { container, list } = styles;
         return (
             <View style={container}>
                 <SearchView />
                 <FlatList
-                    style={{backgroundColor: 'white', flex: 1}}
+                    style={list}
                     data={this.state.mang}
                     renderItem={({ item }) => this.renderItem(item)}
                     keyExtractor={item => item.id}
                 />
+
             </View>
         );
-    };
+    }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ececec'
+    },
+    list: {
+        backgroundColor: 'white',
+        flex: 1
     },
     listItem: {
         flex: 1,

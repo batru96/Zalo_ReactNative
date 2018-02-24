@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, TextInput, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Dimensions } from 'react-native';
 import Header from '../fragments/Header';
-import icBack from '../../icons/ic_back.png';
 
 const { width } = Dimensions.get('window');
 export default class Register extends Component {
@@ -13,14 +12,15 @@ export default class Register extends Component {
     }
     render() {
         const {
-            container, header, buttonBack, title, nameTitle, input,
-            nextButton, nextBtnText,
+            container, nameTitle, input, nextButton, nextBtnText,
         } = styles;
         return (
             <View style={container}>
-                <Header title="Name"/>
+                <Header title="Name" />
                 <Text style={nameTitle}>What's Your Full Name?</Text>
-                <Text style={{ textAlign: 'center' }}>Using real name makes you more recognizable.</Text>
+                <Text style={{ textAlign: 'center' }}>
+                    Using real name makes you more recognizable.
+                </Text>
                 <TextInput
                     style={input}
                     underlineColorAndroid="transparent"
@@ -34,7 +34,7 @@ export default class Register extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-        )
+        );
     }
 }
 

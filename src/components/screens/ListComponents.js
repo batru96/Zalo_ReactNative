@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {
-    View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, FlatList
+    View, Text, TouchableOpacity, StyleSheet, Image, FlatList
 } from 'react-native';
 import SearchView from '../fragments/SearchView';
-import ListItem from '../fragments/ListItem';
 import imgThu from '../../images/thu.jpg';
 import icAddImages from '../../icons/ic_add_image.png';
 
@@ -12,15 +11,31 @@ export default class ListComponents extends Component {
         super(props);
         this.state = {
             mang: [
-                { id: '1', name: 'People nearby' }, { id: '2', name: 'Chat rooms' },
-                { id: '3', name: 'Shop' }, { id: '4', name: 'Sticker' }, { id: '5', name: 'Game' },
+                { id: '1', name: 'People nearby' },
+                { id: '2', name: 'Chat rooms' },
+                { id: '3', name: 'Shop' },
+                { id: '4', name: 'Sticker' },
+                { id: '5', name: 'Game' },
                 { id: '6', name: 'Channel' }
             ]
         };
     }
 
+    renderItem(item) {
+        const { imgProfile, itemContainer, itemName } = styles;
+        return (
+            <TouchableOpacity style={itemContainer}>
+                <Image source={imgThu} style={imgProfile} />
+                <Text style={itemName}>{item.name}</Text>
+            </TouchableOpacity>
+        );
+    }
+
     render() {
-        const { container, content, profile, imgProfile, profileNameContainer, profileImgAdd } = styles;
+        const {
+            container, content, profile, imgProfile, profileNameContainer, profileImgAdd,
+            imgAddContainer
+        } = styles;
         return (
             <View style={container}>
                 <SearchView />
@@ -33,7 +48,7 @@ export default class ListComponents extends Component {
                                 <Text style={{ fontSize: 12 }}>My Profile</Text>
                             </View>
                         </View>
-                        <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+                        <TouchableOpacity style={imgAddContainer}>
                             <Image style={profileImgAdd} source={icAddImages} />
                         </TouchableOpacity>
                     </TouchableOpacity>
@@ -42,7 +57,7 @@ export default class ListComponents extends Component {
                             style={{ backgroundColor: 'white' }}
                             data={this.state.mang}
                             keyExtractor={item => item.id}
-                            renderItem={({ item }) => <ListItem item={item} />}
+                            renderItem={({ item }) => this.renderItem(item)}
                         />
                     </View>
                 </View>
@@ -81,4 +96,19 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 20
     },
-})
+    itemContainer: {
+        flexDirection: 'row',
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderBottomWidth: 1,
+        borderColor: '#ececec',
+        alignItems: 'center'
+    },
+    itemName: {
+        paddingHorizontal: 16
+    },
+    imgAddContainer: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+    }
+});

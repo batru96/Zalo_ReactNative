@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-nati
 
 const { width } = Dimensions.get('window');
 export default class MainSignIn extends Component {
-
     goToRegister() {
         this.props.navigation.navigate('REGISTER');
     }
@@ -34,7 +33,7 @@ export default class MainSignIn extends Component {
                     </View>
                 </View>
             </View>
-        )
+        );
     }
 }
 

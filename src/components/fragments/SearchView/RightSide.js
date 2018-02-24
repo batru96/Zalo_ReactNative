@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet } from 'react-native';
 import icAdd from '../../../icons/ic_add.png';
 
 class RightSide extends Component {
     render() {
-        const {button} = styles;
+        const { button } = styles;
         return (
             <TouchableOpacity>
                 <Image style={button} source={icAdd} />
