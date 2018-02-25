@@ -5,9 +5,10 @@ import SignIn from './components/screens/SignIn';
 import ListComponents from './components/screens/ListComponents';
 import ListMessage from './components/screens/ListMessage';
 import ListContact from './components/screens/ListContact';
+import NewFeed from './components/screens/NewFeed';
 
 export default class App extends Component {
   render() {
-    return <ListContact />;
+    return <NewFeed />;
   }
 }
