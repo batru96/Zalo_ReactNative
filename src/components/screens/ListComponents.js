@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     View, Text, TouchableOpacity, StyleSheet, Image, FlatList
 } from 'react-native';
-import SearchView from '../fragments/SearchView';
 import imgThu from '../../images/thu.jpg';
 import icAddImages from '../../icons/ic_add_image.png';
 
@@ -38,7 +37,6 @@ export default class ListComponents extends Component {
         } = styles;
         return (
             <View style={container}>
-                <SearchView />
                 <View style={content}>
                     <TouchableOpacity style={profile}>
                         <View style={{ flexDirection: 'row' }}>

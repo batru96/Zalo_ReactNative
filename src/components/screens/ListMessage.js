@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, FlatList } from 'react-native';
-import SearchView from '../fragments/SearchView';
 import imgThu from '../../images/thu.jpg';
 
 class ListMessage extends Component {
@@ -37,7 +36,6 @@ class ListMessage extends Component {
         const { container, list } = styles;
         return (
             <View style={container}>
-                <SearchView />
                 <FlatList
                     style={list}
                     data={this.state.mang}

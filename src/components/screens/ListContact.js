@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, SectionList } from 'react-native';
-import SearchView from '../fragments/SearchView';
 import ListContactItem from '../fragments/ListContactItem';
 import imgThu from '../../images/thu.jpg';
 import icNext from '../../icons/ic_arrow_right.png';
@@ -53,7 +52,6 @@ class ListContact extends Component {
         } = styles;
         return (
             <View style={container}>
-                <SearchView />
                 <TouchableOpacity style={recommended}>
                     <View style={recommendedIcon} />
                     <Text style={recommentTitle}>Recommended friends</Text>
