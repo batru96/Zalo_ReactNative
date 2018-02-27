@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-nati
 
 const { width } = Dimensions.get('window');
 export default class MainSignIn extends Component {
-    goToRegister() {
-        this.props.navigation.navigate('REGISTER');
+    changeScreen(screenKey) {
+        this.props.navigation.navigate(screenKey);
     }
 
     render() {
@@ -17,10 +17,16 @@ export default class MainSignIn extends Component {
             <View style={container}>
                 <Text style={title}>Zalo</Text>
                 <View style={childContainer}>
-                    <TouchableOpacity style={loginButton}>
+                    <TouchableOpacity
+                        style={loginButton}
+                        onPress={() => this.changeScreen('SIGN_IN')}
+                    >
                         <Text style={loginBtnText}>LOGIN</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={registerButton} onPress={this.goToRegister.bind(this)}>
+                    <TouchableOpacity
+                        style={registerButton}
+                        onPress={() => this.changeScreen('REGISTER')}
+                    >
                         <Text style={registerBtnText}>Register a new account</Text>
                     </TouchableOpacity>
                     <View style={languageContainer}>

@@ -16,7 +16,7 @@ export default class Register extends Component {
         } = styles;
         return (
             <View style={container}>
-                <Header title="Name" />
+                <Header title="Name" navigation={this.props.navigation} />
                 <Text style={nameTitle}>What's Your Full Name?</Text>
                 <Text style={{ textAlign: 'center' }}>
                     Using real name makes you more recognizable.
@@ -26,6 +26,7 @@ export default class Register extends Component {
                     underlineColorAndroid="transparent"
                     value={this.state.name}
                     placeholder="Enter your full name"
+                    placeholderTextColor="#ececec"
                     onChangeText={text => this.setState({ name: text })}
                 />
                 <View style={{ alignItems: 'center' }}>
@@ -46,15 +47,16 @@ const styles = StyleSheet.create({
     nameTitle: {
         textAlign: 'center',
         color: 'black',
-        fontWeight: '500',
         marginVertical: 10,
-        fontSize: 15
+        fontSize: 14
     },
     input: {
         marginTop: 20,
         backgroundColor: 'white',
         height: 40,
         paddingHorizontal: 16,
+        borderWidth: 0.5,
+        borderColor: '#ececec'
     },
     nextButton: {
         backgroundColor: '#3975e8',

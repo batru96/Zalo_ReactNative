@@ -13,12 +13,15 @@ export default class SignIn extends Component {
             password: ''
         };
     }
+    login() {
+        this.props.navigation.navigate('MAIN_TAB');
+    }
     render() {
         const { username, password } = this.state;
         const { container, title, input, nextButton, nextBtnText } = styles;
         return (
             <View style={container}>
-                <Header title="Login" />
+                <Header title="Login" navigation={this.props.navigation} />
                 <Text style={title}>You can login with your phone number or username</Text>
                 <TextInput
                     style={input}
@@ -36,11 +39,14 @@ export default class SignIn extends Component {
                     placeholder="Password"
                 />
                 <View style={{ alignItems: 'center' }}>
-                    <TouchableOpacity style={nextButton}>
+                    <TouchableOpacity
+                        style={nextButton}
+                        onPress={this.login.bind(this)}
+                    >
                         <Text style={nextBtnText}>LOGIN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={{ color: '#3975e8' }}s>Recover password</Text>
+                        <Text style={{ color: '#3975e8' }} s>Recover password</Text>
                     </TouchableOpacity>
                 </View>
             </View>

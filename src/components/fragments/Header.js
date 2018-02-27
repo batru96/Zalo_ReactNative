@@ -7,7 +7,7 @@ export default class Header extends Component {
         const { header, buttonBack, title } = styles;
         return (
             <View style={header}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                     <Image source={icBack} style={buttonBack} />
                 </TouchableOpacity>
                 <Text style={title}>{this.props.title}</Text>

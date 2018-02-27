@@ -15,7 +15,6 @@ class ListMessage extends Component {
             ],
         };
     }
-
     renderItem(item) {
         const { listItem, imgProfile, topContainer, rightContainer, message, nameTitle } = styles;
         return (

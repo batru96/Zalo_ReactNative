@@ -45,6 +45,8 @@ class ListContact extends Component {
         };
     }
 
+    recommendedFriends() {
+    }
     render() {
         const {
             container, recommended, recommentTitle, iconNext, listTitle, friendsContainer,
@@ -52,7 +54,10 @@ class ListContact extends Component {
         } = styles;
         return (
             <View style={container}>
-                <TouchableOpacity style={recommended}>
+                <TouchableOpacity
+                    style={recommended}
+                    onPress={this.recommendedFriends.bind(this)}
+                >
                     <View style={recommendedIcon} />
                     <Text style={recommentTitle}>Recommended friends</Text>
                     <View style={btnNextContainer}>

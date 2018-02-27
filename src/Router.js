@@ -1,14 +1,39 @@
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { TabNavigator, TabBarBottom, StackNavigator } from 'react-navigation';
 import React from 'react';
 import { Image } from 'react-native';
-import icMessages from './icons/ic_mesages.png';
-import icTimer from './icons/ic_clock.png';
-import icContact from './icons/ic_contact.png';
 import TabMesage from './components/screens/ListMessage';
 import TabContact from './components/screens/ListContact';
 import TabComponents from './components/screens/ListComponents';
+import SignIn from './components/screens/SignIn';
+import MainSignIn from './components/screens/MainSignIn';
+import Register from './components/screens/Register';
+import Home from './components/screens/Home';
+import icMessages from './icons/ic_mesages.png';
+import icTimer from './icons/ic_clock.png';
+import icContact from './icons/ic_contact.png';
 
-const MainTab = TabNavigator({
+export const SignInStack = StackNavigator({
+    MAIN_SIGN_IN: {
+        screen: MainSignIn,
+        navigationOptions: {
+            header: null
+        }
+    },
+    SIGN_IN: {
+        screen: SignIn,
+        navigationOptions: {
+            header: null
+        }
+    },
+    REGISTER: {
+        screen: Register,
+        navigationOptions: {
+            header: null
+        }
+    }
+});
+
+export const MainTab = TabNavigator({
     TAB_MESSAGE: {
         screen: TabMesage
     },
@@ -38,7 +63,7 @@ const MainTab = TabNavigator({
                         style={{ width: 20, height: 20, tintColor: myColor }}
                     />
                 );
-            }
+            },
         }),
         tabBarOptions: {
             activeTintColor: '#4b8bff',
@@ -54,5 +79,19 @@ const MainTab = TabNavigator({
     },
 );
 
-export default MainTab;
+const MainStack = StackNavigator({
+    SIGN_IN_STACK: {
+        screen: SignInStack,
+        navigationOptions: {
+            header: null,
+        }
+    },
+    MAIN_TAB: {
+        screen: Home,
+        navigationOptions: {
+            header: null
+        }
+    }
+});
 
+export default MainStack;
