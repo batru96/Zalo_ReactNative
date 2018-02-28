@@ -8,9 +8,11 @@ import SignIn from './components/screens/SignIn';
 import MainSignIn from './components/screens/MainSignIn';
 import Register from './components/screens/Register';
 import Home from './components/screens/Home';
+import NewFeed from './components/screens/NewFeed';
 import icMessages from './icons/ic_mesages.png';
 import icTimer from './icons/ic_clock.png';
 import icContact from './icons/ic_contact.png';
+import icHoriSetting from './icons/ic_hori_setting.png';
 
 export const SignInStack = StackNavigator({
     MAIN_SIGN_IN: {
@@ -40,6 +42,9 @@ export const MainTab = TabNavigator({
     TAB_CONTACT: {
         screen: TabContact
     },
+    TAB_NEW_FEED: {
+        screen: NewFeed
+    },
     TAB_COMPONENTS: {
         screen: TabComponents
     }
@@ -54,6 +59,8 @@ export const MainTab = TabNavigator({
                 } else if (routeName === 'TAB_CONTACT') {
                     iconName = icContact;
                 } else if (routeName === 'TAB_COMPONENTS') {
+                    iconName = icHoriSetting;
+                } else if (routeName === 'TAB_NEW_FEED') {
                     iconName = icTimer;
                 }
                 const myColor = focused ? tintColor : 'gray';
@@ -64,11 +71,6 @@ export const MainTab = TabNavigator({
                     />
                 );
             },
-            // tabBarOnPress: ({ scene, jumpToIndex }) => {
-            //     console.log('----------');
-            //     console.log(scene);
-            //     jumpToIndex(scene.index);
-            // },
         }),
         tabBarOptions: {
             activeTintColor: '#4b8bff',

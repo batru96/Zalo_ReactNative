@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-nati
 import AddButton from './SearchView/AddButton';
 import SettingButton from './SearchView/SettingButton';
 import AddFriendButton from './SearchView/AddFriendButton';
+import AddImage from './SearchView/AddImage';
 import icSearch from '../../icons/ic_search.png';
 
 export default class SearchView extends Component {
@@ -18,6 +19,8 @@ export default class SearchView extends Component {
             case 1:
                 return <AddFriendButton />;
             case 2:
+                return <AddImage />;
+            case 3:
                 return <SettingButton />;
             default:
                 return <AddButton />;

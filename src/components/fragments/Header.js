@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import icBack from '../../icons/ic_back.png';
+import icBack from '../../icons/ic_left_arrow_white.png';
 
 export default class Header extends Component {
     render() {

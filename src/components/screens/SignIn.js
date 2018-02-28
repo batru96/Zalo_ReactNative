@@ -19,7 +19,7 @@ class SignIn extends Component {
     render() {
         const { username, password } = this.state;
         const { container, title, input, nextButton, nextBtnText, nextButtonDisable } = styles;
-        const isEnable = username !== '' && password !== '';
+        const isDisable = username === '' || password === '';
         return (
             <View style={container}>
                 <Header title="Login" navigation={this.props.navigation} />
@@ -41,9 +41,9 @@ class SignIn extends Component {
                 />
                 <View style={{ alignItems: 'center' }}>
                     <TouchableOpacity
-                        style={isEnable ? nextButton : nextButtonDisable}
+                        style={isDisable ? nextButtonDisable : nextButton}
                         onPress={this.login.bind(this)}
-                        disabled={!isEnable}
+                        disabled={isDisable}
                     >
                         <Text style={nextBtnText}>LOGIN</Text>
                     </TouchableOpacity>
