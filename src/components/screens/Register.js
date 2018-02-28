@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, TextInput, Dimensions } from 
 import Header from '../fragments/Header';
 
 const { width } = Dimensions.get('window');
-export default class Register extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,8 +12,9 @@ export default class Register extends Component {
     }
     render() {
         const {
-            container, nameTitle, input, nextButton, nextBtnText,
+            container, nameTitle, input, nextButton, nextBtnText, nextButtonDisable
         } = styles;
+        const isDisable = this.state.name === '';
         return (
             <View style={container}>
                 <Header title="Name" navigation={this.props.navigation} />
@@ -30,7 +31,10 @@ export default class Register extends Component {
                     onChangeText={text => this.setState({ name: text })}
                 />
                 <View style={{ alignItems: 'center' }}>
-                    <TouchableOpacity style={nextButton}>
+                    <TouchableOpacity
+                        style={isDisable ? nextButtonDisable : nextButton}
+                        disabled={isDisable}
+                    >
                         <Text style={nextBtnText}>Next</Text>
                     </TouchableOpacity>
                 </View>
@@ -65,8 +69,18 @@ const styles = StyleSheet.create({
         padding: 6,
         borderRadius: 16
     },
+    nextButtonDisable: {
+        backgroundColor: '#a9d7fa',
+        width: width / 2,
+        marginTop: 20,
+        padding: 6,
+        borderRadius: 16
+    },
     nextBtnText: {
         color: 'white',
         textAlign: 'center'
-    }
+    },
+
 });
+
+export default Register;

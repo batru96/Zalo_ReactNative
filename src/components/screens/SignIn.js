@@ -5,7 +5,7 @@ import {
 import Header from '../fragments/Header';
 
 const { width } = Dimensions.get('window');
-export default class SignIn extends Component {
+class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +18,8 @@ export default class SignIn extends Component {
     }
     render() {
         const { username, password } = this.state;
-        const { container, title, input, nextButton, nextBtnText } = styles;
+        const { container, title, input, nextButton, nextBtnText, nextButtonDisable } = styles;
+        const isEnable = username !== '' && password !== '';
         return (
             <View style={container}>
                 <Header title="Login" navigation={this.props.navigation} />
@@ -40,8 +41,9 @@ export default class SignIn extends Component {
                 />
                 <View style={{ alignItems: 'center' }}>
                     <TouchableOpacity
-                        style={nextButton}
+                        style={isEnable ? nextButton : nextButtonDisable}
                         onPress={this.login.bind(this)}
+                        disabled={!isEnable}
                     >
                         <Text style={nextBtnText}>LOGIN</Text>
                     </TouchableOpacity>
@@ -80,9 +82,19 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         marginBottom: 16
     },
+    nextButtonDisable: {
+        backgroundColor: '#a9d7fa',
+        width: width / 2,
+        marginTop: 20,
+        padding: 6,
+        borderRadius: 16,
+        marginBottom: 16,
+    },
     nextBtnText: {
         color: 'white',
         textAlign: 'center'
     },
 
 });
+
+export default SignIn;

@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
-import {
-    View, Text, TouchableOpacity, StyleSheet, Image, FlatList
-} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList } from 'react-native';
 import imgThu from '../../images/thu.jpg';
 import icAddImages from '../../icons/ic_add_image.png';
 
-export default class ListComponents extends Component {
+class ListComponents extends Component {
     constructor(props) {
         super(props);
         this.state = {
             mang: [
-                { id: '1', name: 'People nearby' },
-                { id: '2', name: 'Chat rooms' },
-                { id: '3', name: 'Shop' },
-                { id: '4', name: 'Sticker' },
-                { id: '5', name: 'Game' },
-                { id: '6', name: 'Channel' }
-            ]
+                { id: '1', name: 'People nearby', backgroundColor: '#3b8efe' },
+                { id: '2', name: 'Chat rooms', backgroundColor: '#38b8cd' },
+                { id: '3', name: 'Shop', backgroundColor: '#9cf300' },
+                { id: '4', name: 'Sticker', backgroundColor: '#f0bd26' },
+                { id: '5', name: 'Game', backgroundColor: '#f1515a' },
+                { id: '6', name: 'Channel', backgroundColor: '#ac34d5' }
+            ],
         };
     }
 
     renderItem(item) {
-        const { imgProfile, itemContainer, itemName } = styles;
+        const { itemContainer, itemName } = styles;
+        const { name, backgroundColor } = item;
         return (
             <TouchableOpacity style={itemContainer}>
-                <Image source={imgThu} style={imgProfile} />
-                <Text style={itemName}>{item.name}</Text>
+                <View style={{ width: 40, height: 40, borderRadius: 20, backgroundColor }} />
+                <Text style={itemName}>{name}</Text>
             </TouchableOpacity>
         );
     }
@@ -110,3 +109,5 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end'
     }
 });
+
+export default ListComponents;
