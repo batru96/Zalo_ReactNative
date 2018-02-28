@@ -4,11 +4,22 @@ import SearchView from '../fragments/SearchView';
 import { MainTab } from '../../Router';
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tabIndex: 0
+        };
+    }
+    onNavigationStateChange(prevState, nextState) {
+        this.setState({
+            tabIndex: nextState.index
+        });
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <SearchView />
-                <MainTab />
+                <SearchView tabIndex={this.state.tabIndex} />
+                <MainTab onNavigationStateChange={this.onNavigationStateChange.bind(this)} />
             </View>
         );
     }

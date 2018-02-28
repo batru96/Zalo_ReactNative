@@ -64,6 +64,11 @@ export const MainTab = TabNavigator({
                     />
                 );
             },
+            // tabBarOnPress: ({ scene, jumpToIndex }) => {
+            //     console.log('----------');
+            //     console.log(scene);
+            //     jumpToIndex(scene.index);
+            // },
         }),
         tabBarOptions: {
             activeTintColor: '#4b8bff',

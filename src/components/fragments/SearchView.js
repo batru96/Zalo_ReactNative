@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import RightSide from './SearchView/RightSide';
+import AddButton from './SearchView/AddButton';
+import SettingButton from './SearchView/SettingButton';
+import AddFriendButton from './SearchView/AddFriendButton';
 import icSearch from '../../icons/ic_search.png';
 
 export default class SearchView extends Component {
@@ -11,8 +13,19 @@ export default class SearchView extends Component {
         };
     }
 
+    getRightSide() {
+        switch (this.props.tabIndex) {
+            case 1:
+                return <AddFriendButton />;
+            case 2:
+                return <SettingButton />;
+            default:
+                return <AddButton />;
+        }
+    }
     render() {
         const { container, button, input } = styles;
+
         return (
             <View style={container}>
                 <TouchableOpacity>
@@ -26,7 +39,7 @@ export default class SearchView extends Component {
                     placeholder="Search friends, messages..."
                     underlineColorAndroid="transparent"
                 />
-                <RightSide />
+                {this.getRightSide()}
             </View>
         );
     }
