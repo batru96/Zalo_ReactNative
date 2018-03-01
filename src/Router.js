@@ -9,6 +9,7 @@ import MainSignIn from './components/screens/MainSignIn';
 import Register from './components/screens/Register';
 import Home from './components/screens/Home';
 import NewFeed from './components/screens/NewFeed';
+import Setting from './components/screens/Setting';
 import icMessages from './icons/ic_mesages.png';
 import icTimer from './icons/ic_clock.png';
 import icContact from './icons/ic_contact.png';
@@ -95,6 +96,12 @@ const MainStack = StackNavigator({
     },
     MAIN_TAB: {
         screen: Home,
+        navigationOptions: {
+            header: null
+        }
+    },
+    SETTING: {
+        screen: Setting,
         navigationOptions: {
             header: null
         }

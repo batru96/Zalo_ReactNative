@@ -21,7 +21,7 @@ export default class SearchView extends Component {
             case 2:
                 return <AddImage />;
             case 3:
-                return <SettingButton />;
+                return <SettingButton navigation={this.props.navigation} />;
             default:
                 return <AddButton />;
         }

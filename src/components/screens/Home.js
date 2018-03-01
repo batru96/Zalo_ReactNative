@@ -18,7 +18,7 @@ export default class Home extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <SearchView tabIndex={this.state.tabIndex} />
+                <SearchView tabIndex={this.state.tabIndex} navigation={this.props.navigation} />
                 <MainTab onNavigationStateChange={this.onNavigationStateChange.bind(this)} />
             </View>
         );
