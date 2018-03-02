@@ -19,11 +19,18 @@ class Setting extends Component {
     }
     render() {
         const { container } = styles;
+        const { navigation } = this.props;
         return (
             <View style={container}>
                 <Header title="Setting" navigation={this.props.navigation} />
-                <SettingItem item={{ id: '0', name: 'Privacy' }} />
-                <SettingItem item={{ id: '1', name: 'Account and security' }} />
+                <SettingItem
+                    item={{ id: '0', name: 'Privacy' }}
+                    navigation={navigation}
+                />
+                <SettingItem
+                    item={{ id: '1', name: 'Account and security' }}
+                    navigation={navigation}
+                />
                 <View style={{ marginVertical: 8 }}>
                     <FlatList
                         data={this.state.mang}
@@ -31,7 +38,10 @@ class Setting extends Component {
                         renderItem={({ item }) => <SettingItem item={item} />}
                     />
                 </View>
-                <SettingItem item={{ id: 0, name: 'Privacy' }} />
+                <SettingItem
+                    item={{ id: '8', name: 'Log out' }}
+                    navigation={navigation}
+                />
             </View>
         );
     }

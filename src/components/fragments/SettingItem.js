@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, Image, StyleSheet, Alert } from 'react-native';
 import icNext from '../../icons/ic_right_gray.png';
 import icPrivacy from '../../icons/ic_privacy.png';
 import icSecurity from '../../icons/ic_security.png';
@@ -12,6 +12,26 @@ import icAbout from '../../icons/ic_about.png';
 import icLogout from '../../icons/ic_logout.png';
 
 class SettingItem extends Component {
+    onPress(id) {
+        const { navigation } = this.props;
+        if (navigation) {
+            switch (id) {
+                default:
+                    // Go back to the sign in
+                    Alert.alert(
+                        undefined,                        
+                        'Log out?',
+                        [
+                            { text: 'No' },
+                            { text: 'Yes', onPress: () => navigation.pop(2) }
+                        ],
+                        { cancelable: false }
+                    );
+                    break;
+            }
+        }
+    }
+
     getIcon(id) {
         switch (id) {
             case '0': return icPrivacy;
@@ -30,7 +50,7 @@ class SettingItem extends Component {
         const { container, icon, text } = styles;
         const { id, name } = this.props.item;
         return (
-            <TouchableOpacity style={container}>
+            <TouchableOpacity style={container} onPress={() => this.onPress(id)}>
                 <Image style={icon} source={this.getIcon(id)} />
                 <Text style={text}>{name}</Text>
                 <Image style={icon} source={icNext} />

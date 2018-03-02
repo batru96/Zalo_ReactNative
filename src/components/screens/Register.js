@@ -10,6 +10,11 @@ class Register extends Component {
             name: ''
         };
     }
+    getTitleName() {
+        const { params } = this.props.navigation.state;
+        if (params !== undefined) return params.title;
+        return 'Name';
+    }
     render() {
         const {
             container, nameTitle, input, nextButton, nextBtnText, nextButtonDisable
@@ -17,7 +22,7 @@ class Register extends Component {
         const isDisable = this.state.name === '';
         return (
             <View style={container}>
-                <Header title="Name" navigation={this.props.navigation} />
+                <Header title={this.getTitleName()} navigation={this.props.navigation} />
                 <Text style={nameTitle}>What's Your Full Name?</Text>
                 <Text style={{ textAlign: 'center' }}>
                     Using real name makes you more recognizable.

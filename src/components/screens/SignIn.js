@@ -16,6 +16,9 @@ class SignIn extends Component {
     login() {
         this.props.navigation.navigate('MAIN_TAB');
     }
+    recoverPassword() {
+        this.props.navigation.navigate('REGISTER', { title: 'Recover password' });
+    }
     render() {
         const { username, password } = this.state;
         const { container, title, input, nextButton, nextBtnText, nextButtonDisable } = styles;
@@ -47,7 +50,7 @@ class SignIn extends Component {
                     >
                         <Text style={nextBtnText}>LOGIN</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.recoverPassword.bind(this)}>
                         <Text style={{ color: '#3975e8' }} s>Recover password</Text>
                     </TouchableOpacity>
                 </View>
