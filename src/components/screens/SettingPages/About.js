@@ -23,7 +23,7 @@ export default class About extends Component {
         const { container, serviceBtn, logoContainer, logo, logoText, bottomContainer } = styles;
         return (
             <View style={container}>
-                <Header title='About' />
+                <Header title='About' navigation={this.props.navigation} />
                 <View style={logoContainer}>
                     <View style={logo}>
                         <Text style={logoText}>Zalo</Text>

@@ -35,7 +35,9 @@ class Setting extends Component {
                     <FlatList
                         data={this.state.mang}
                         keyExtractor={item => item.id}
-                        renderItem={({ item }) => <SettingItem item={item} />}
+                        renderItem={
+                            ({ item }) => <SettingItem item={item} navigation={navigation} />
+                        }
                     />
                 </View>
                 <SettingItem

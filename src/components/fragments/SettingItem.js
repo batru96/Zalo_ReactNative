@@ -16,10 +16,28 @@ class SettingItem extends Component {
         const { navigation } = this.props;
         if (navigation) {
             switch (id) {
+                case '0':
+                    break;
+                case '1':
+                    navigation.navigate('ACCOUNT');
+                    break;
+                case '2':
+                    break;
+                case '3':
+                    break;
+                case '4':
+                    break;
+                case '5':
+                    break;
+                case '6':
+                    break;
+                case '7':
+                    navigation.navigate('ABOUT');
+                    break;
                 default:
                     // Go back to the sign in
                     Alert.alert(
-                        undefined,                        
+                        undefined,
                         'Log out?',
                         [
                             { text: 'No' },

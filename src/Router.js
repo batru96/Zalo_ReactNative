@@ -10,6 +10,8 @@ import Register from './components/screens/Register';
 import Home from './components/screens/Home';
 import NewFeed from './components/screens/NewFeed';
 import Setting from './components/screens/Setting';
+import AccountPage from './components/screens/SettingPages/AccountPage';
+import About from './components/screens/SettingPages/About';
 import icMessages from './icons/ic_mesages.png';
 import icTimer from './icons/ic_clock.png';
 import icContact from './icons/ic_contact.png';
@@ -102,6 +104,18 @@ const MainStack = StackNavigator({
     },
     SETTING: {
         screen: Setting,
+        navigationOptions: {
+            header: null
+        }
+    },
+    ACCOUNT: {
+        screen: AccountPage,
+        navigationOptions: {
+            header: null
+        },
+    },
+    ABOUT: {
+        screen: About,
         navigationOptions: {
             header: null
         }
